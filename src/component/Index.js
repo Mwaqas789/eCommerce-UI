@@ -8,7 +8,6 @@ const Index = () => {
   return (
     <>
       <Navbar />
-
       {/* Intro  */}
       <div className="container-fluid indexDiv ">
         <div className="row">
