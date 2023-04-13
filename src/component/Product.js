@@ -18,6 +18,10 @@ const Product = ({setCartitem,handelAddProduct,handleRemoveproduct, ...props}) =
         </div>
 
         <div className="row mt-5">
+
+
+
+          
           {
             props.data.map((i)=>(
               // cart start
