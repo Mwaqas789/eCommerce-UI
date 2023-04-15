@@ -1,11 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CreateUser.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateUser = () => {
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [gender, setGender] = useState("male");
+
+  const navigate = useNavigate();
+
+  const handelsubmit = (e) => {
+    e.preventDefault();
+    const mainObj = {
+      id,
+      name,
+      password,
+      email,
+      phone,
+      country,
+      address,
+      gender,
+    };
+    console.log(mainObj);
+    fetch("http://localhost:3000/user", {
+      method: "POST",
+      body: JSON.stringify(mainObj),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((response) => {
+        alert("Rejister Successfully");
+        response.json();
+      })
+      .then((resp) => {
+        console.log(resp);
+        navigate("/login");
+      })
+      .catch((err) => {
+        alert("Rejister Successfully");
+        console.log(err);
+      });
+  };
   return (
     <div className="row mt-5">
-      <div className="offset-lg-3 col-lg-6">
+      <div className="offset-lg-3 col-lg-6" onSubmit={handelsubmit}>
         <form className="container">
           <div className="card">
             <div className="cart-header">
@@ -17,13 +60,24 @@ const CreateUser = () => {
                 <div className="col-lg-6">
                   <div className="from-group">
                     <label>Name</label>
-                    <input className="form-control" type="text" />
+                    <input
+                      value={id}
+                      onChange={(e) => setId(e.target.value)}
+                      required
+                      className="form-control"
+                      type="text"
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="from-group">
                     <label>Password</label>
-                    <input className="form-control" type="password" />
+                    <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="form-control"
+                      type="password"
+                    />
                   </div>
                 </div>
               </div>
@@ -32,13 +86,23 @@ const CreateUser = () => {
                 <div className="col-lg-6">
                   <div className="from-group">
                     <label> Full Name</label>
-                    <input className="form-control" type="text" />
+                    <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="form-control"
+                      type="text"
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="from-group">
                     <label>Email</label>
-                    <input className="form-control" type="email" />
+                    <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="form-control"
+                      type="email"
+                    />
                   </div>
                 </div>
               </div>
@@ -47,13 +111,22 @@ const CreateUser = () => {
                 <div className="col-lg-6">
                   <div className="from-group">
                     <label>Phone Number</label>
-                    <input className="form-control" type="number" />
+                    <input
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="form-control"
+                      type="number"
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="from-group">
                     <label>Country</label>
-                    <select className="form-control">
+                    <select
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
+                      className="form-control"
+                    >
                       <option value="pakistan"> Pakistan </option>
                       <option value="Dabai"> Dabai </option>
                       <option value="Uk"> UK </option>
@@ -67,7 +140,12 @@ const CreateUser = () => {
                   <div className="from-group">
                     <div className="from-group">
                       <label>Address</label>
-                      <textarea className="form-control"></textarea>
+
+                      <textarea
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        className="form-control"
+                      ></textarea>
                     </div>
                   </div>
                 </div>
@@ -78,17 +156,21 @@ const CreateUser = () => {
                     <br />
                     <br />
                     <input
+                      checked={gender === "male"}
+                      value="male"
+                      onChange={(e) => setGender(e.target.value)}
                       className="app-check"
                       name="gender"
                       type="radio"
-                      value="male"
                     />
                     <label>Male</label>
                     <input
+                      checked={gender === "female"}
+                      value="female"
+                      onChange={(e) => setGender(e.target.value)}
                       className="app-check"
                       name="gender"
                       type="radio"
-                      value="female"
                     />
                     <label>Female</label>
                   </div>

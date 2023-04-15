@@ -1,37 +1,44 @@
 {
   "user": [
     {
-      "name": "Noor Ahmad",
-      "email": "Noor@gmail.com",
-      "phone": "03088883398",
-      "id": 1
+      "id": "Muhammad Waqas",
+      "name": "Ahmad",
+      "password": "123",
+      "email": "a@gmail.com",
+      "phone": "03206437540",
+      "country": "",
+      "address": "word No.131 new green town lahore",
+      "gender": "male"
     },
     {
-      "name": "Noor Ahmad",
-      "email": "Noor@gmail.com",
-      "phone": "03088883398",
-      "id": 2
+      "id": "Muhammad ",
+      "name": "Ahmad",
+      "password": "123",
+      "email": "a@gmail.com",
+      "phone": "03206437540",
+      "country": "",
+      "address": "word No.131 new green town lahore",
+      "gender": "male"
     },
     {
-      "name": "Noor Ahmad",
-      "email": "Noor@gmail.com",
-      "phone": "03088883398",
-      "id": 3
+      "id": "Fasal",
+      "name": "ahmad",
+      "password": "321",
+      "email": "12@gmail.com",
+      "phone": "311",
+      "country": "",
+      "address": "",
+      "gender": "male"
     },
     {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
+      "id": "qweee",
+      "name": "",
+      "password": "",
+      "email": "gmail@gmail.com",
+      "phone": "",
+      "country": "",
+      "address": "",
+      "gender": "male"
     }
   ]
 }
