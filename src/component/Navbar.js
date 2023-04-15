@@ -4,11 +4,11 @@ import img from "../component/pics/shop1.png";
 import { Link } from "react-router-dom";
 import ContectUs from "./ContectUs";
 
-const Navbar = ({setCartitem}) => {
-  const [setimg,changeImg]=useState(1)
-  const ImagesHandel =()=>{
-    changeImg(setimg + 1)
-  }
+const Navbar = ({ setCartitem }) => {
+  const [setimg, changeImg] = useState(1);
+  const ImagesHandel = () => {
+    changeImg(setimg + 1);
+  };
   // console.log("setCartitem", setCartitem.length)
   return (
     <>
@@ -34,11 +34,11 @@ const Navbar = ({setCartitem}) => {
               <div className="collapse navbar-collapse" id="mynav">
                 <ul className="navbar-nav ms-auto text-center">
                   <Link to="/">
-                  <li className=" nav-item ">
-                    <a href="" className="nav-link active ">
-                      Home
-                    </a>
-                  </li>
+                    <li className=" nav-item ">
+                      <a href="" className="nav-link active ">
+                        Home
+                      </a>
+                    </li>
                   </Link>
 
                   <Link to="/product">
@@ -49,37 +49,39 @@ const Navbar = ({setCartitem}) => {
                     </li>
                   </Link>
                   <Link to="/contect">
-                  <li className=" nav-item">
-                    <a href="" className="nav-link ">
-                      Contact Us
-                    </a>
-                  </li>
+                    <li className=" nav-item">
+                      <a href="" className="nav-link ">
+                        Contact Us
+                      </a>
+                    </li>
                   </Link>
-                  
-                  
-                    <Link to="/detail">
+
+                  <Link to="/login">
+                    <li className=" nav-item">
+                      <a href="" className="nav-link ">
+                        Login
+                      </a>
+                    </li>
+                  </Link>
+
+                  <Link to="/detail">
                     <li>
-                       <img
-                      src={img}
-                      height="60px"
-                      width="60px"
-                      style={{background : "transparent"}}
-                      border-radus="50%"
-                      alt="First slide"
-                      onClick={ImagesHandel}
+                      <img
+                        src={img}
+                        height="60px"
+                        width="60px"
+                        style={{ background: "transparent" }}
+                        border-radus="50%"
+                        alt="First slide"
+                        onClick={ImagesHandel}
                       />
-                      
+
                       {/* adding qutentity in cart */}
-                      <span className="cart-lenght"> 
+                      <span className="cart-lenght">
                         {setCartitem?.length > 0 && setCartitem?.length}
                       </span>
-
-
-                      </li>
-                      </Link>
-                 
-                    
-                  
+                    </li>
+                  </Link>
                 </ul>
               </div>
             </div>
